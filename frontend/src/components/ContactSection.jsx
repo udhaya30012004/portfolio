@@ -6,6 +6,7 @@ import {
   MapPin,
   Phone,
   Send,
+  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -30,8 +31,22 @@ export const ContactSection = () => {
       setIsSubmitting(false);
     }, 1500);
   };
+
+  const contactItems = [
+    { icon: Mail, title: "Email", value: "udhaya3014@gmail.com", href: "mailto:udhaya3014@gmail.com" },
+    { icon: Phone, title: "Phone", value: "+91 XXXXX XXXXX", href: "#" },
+    { icon: MapPin, title: "Location", value: "Chennai, Tamil Nadu, India", href: null },
+  ];
+
+  const socialLinks = [
+    { icon: Linkedin, href: "https://www.linkedin.com/in/udhaya-kumar-3a408b228/", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/udhaya30012004", label: "GitHub" },
+    { icon: Mail, href: "mailto:udhaya3014@gmail.com", label: "Email" },
+    { icon: FileText, href: "https://drive.google.com/file/d/13Rzfxj9LQFbKf-IRgG86jdhqh2TVIGDb/view?usp=sharing", label: "Resume" },
+  ];
+
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/20">
+    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <ScrollReveal>
           <div className="mb-12 text-center">
@@ -50,92 +65,59 @@ export const ContactSection = () => {
           <ScrollReveal className="space-y-8 text-left">
             <h3 className="text-2xl font-bold">Contact Information</h3>
 
-            <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />
+            <div className="space-y-5">
+              {contactItems.map(({ icon: Icon, title, value, href }) => (
+                <div key={title} className="flex items-start space-x-4 group">
+                  <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/15 transition-colors duration-300">
+                    <Icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">{title}</h4>
+                    {href ? (
+                      <a
+                        href={href}
+                        className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <span className="text-muted-foreground">{value}</span>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-medium"> Email</h4>
-                  <a
-                    href="mailto:udhaya3014@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    udhaya3014@gmail.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium"> Phone</h4>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    +91 XXXXX XXXXX
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Chennai, Tamil Nadu, India
-                  </a>
-                </div>
-              </div>
+              ))}
             </div>
 
-            <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
-                <a
-                  href="https://www.linkedin.com/in/udhaya-kumar-3a408b228/"
-                  target="_blank"
-                  className="rounded-full border border-border p-3 hover:border-primary/50 hover:text-primary transition-colors"
-                >
-                  <Linkedin />
-                </a>
-                <a
-                  href="https://github.com/udhaya30012004"
-                  target="_blank"
-                  className="rounded-full border border-border p-3 hover:border-primary/50 hover:text-primary transition-colors"
-                >
-                  <Github />
-                </a>
-                <a
-                  href="mailto:udhaya3014@gmail.com"
-                  target="_blank"
-                  className="rounded-full border border-border p-3 hover:border-primary/50 hover:text-primary transition-colors"
-                >
-                  <Mail />
-                </a>
-                <a
-                  href="https://drive.google.com/file/d/13Rzfxj9LQFbKf-IRgG86jdhqh2TVIGDb/view?usp=sharing"
-                  target="_blank"
-                  className="rounded-full border border-border p-3 hover:border-primary/50 hover:text-primary transition-colors"
-                >
-                  <FileText />
-                </a>
+            <div className="pt-6">
+              <h4 className="font-semibold mb-4"> Connect With Me</h4>
+              <div className="flex space-x-3 justify-center">
+                {socialLinks.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    aria-label={label}
+                    className="rounded-full border border-border p-3 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 magnetic-hover"
+                  >
+                    <Icon size={20} />
+                  </a>
+                ))}
               </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={140}>
-          <div className="glass-panel gradient-border p-8 rounded-lg shadow-xs">
-            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+          <div className="glass-panel gradient-border p-8 rounded-xl">
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Sparkles size={20} className="text-primary" />
+              Send a Message
+            </h3>
 
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-semibold mb-2"
                 >
                   Your Name
                 </label>
@@ -144,7 +126,7 @@ export const ContactSection = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-xl border border-input bg-background/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/30 transition-all duration-300"
                   placeholder="Enter your name..."
                 />
               </div>
@@ -152,7 +134,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-semibold mb-2"
                 >
                   Your Email
                 </label>
@@ -161,7 +143,7 @@ export const ContactSection = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-xl border border-input bg-background/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/30 transition-all duration-300"
                   placeholder="your@email.com"
                 />
               </div>
@@ -169,7 +151,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-semibold mb-2"
                 >
                   Your Message
                 </label>
@@ -177,7 +159,7 @@ export const ContactSection = () => {
                   id="message"
                   name="message"
                   required
-                  className="w-full min-h-32 px-4 py-3 rounded-md border border-input bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                  className="w-full min-h-32 px-4 py-3 rounded-xl border border-input bg-background/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/30 transition-all duration-300 resize-none"
                   placeholder="Hi Udhaya, I'd like to discuss an opportunity..."
                 />
               </div>
@@ -186,7 +168,8 @@ export const ContactSection = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
+                  "cosmic-button w-full flex items-center justify-center gap-2",
+                  isSubmitting && "opacity-70 cursor-not-allowed"
                 )}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}

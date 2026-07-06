@@ -1,4 +1,4 @@
-import { ArrowDown, Bot, BrainCircuit, DatabaseZap } from "lucide-react";
+import { ArrowDown, Bot, BrainCircuit, DatabaseZap, Sparkles } from "lucide-react";
 
 export const HeroSection = () => {
   return (
@@ -6,30 +6,35 @@ export const HeroSection = () => {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
     >
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-[10%] top-[22%] h-48 w-48 rounded-full bg-cyan-400/10 blur-3xl animate-pulse-subtle" />
-        <div className="absolute right-[14%] bottom-[24%] h-56 w-56 rounded-full bg-violet-500/10 blur-3xl animate-float" />
+      {/* Animated background orbs */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div
+          className="absolute left-[8%] top-[18%] h-64 w-64 rounded-full blur-3xl animate-float-slow"
+          style={{ background: "var(--hero-orb-1)" }}
+        />
+        <div
+          className="absolute right-[12%] top-[30%] h-72 w-72 rounded-full blur-3xl animate-float-reverse"
+          style={{ background: "var(--hero-orb-2)" }}
+        />
+        <div
+          className="absolute left-[40%] bottom-[15%] h-56 w-56 rounded-full blur-3xl animate-float"
+          style={{ background: "var(--hero-orb-3)" }}
+        />
       </div>
 
       <div className="container max-w-5xl mx-auto text-center z-10">
-        <div className="space-y-7">
+        <div className="space-y-8">
           <div className="opacity-0 animate-fade-in">
             <span className="section-kicker">
-              <BrainCircuit size={15} />
+              <Sparkles size={14} className="text-primary" />
               AI/ML Engineer
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
-              {" "}
-              Udhaya
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
-              {" "}
-              Kumar
-            </span>
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight flex flex-wrap justify-center items-center gap-x-3 gap-y-2">
+            <span className="opacity-0 animate-fade-in">Hi, I'm</span>
+            <span className="text-primary opacity-0 animate-fade-in-delay-1">Udhaya Kumar</span>
+            <span className="text-gradient opacity-0 animate-fade-in-delay-2"></span>
           </h1>
 
           <p className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto opacity-0 animate-fade-in-delay-3 leading-relaxed">
@@ -45,7 +50,7 @@ export const HeroSection = () => {
             ].map(({ icon: Icon, label }) => (
               <span
                 key={label}
-                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/50 px-4 py-2 text-sm font-semibold text-muted-foreground backdrop-blur"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/20 glass-panel px-4 py-2.5 text-sm font-semibold text-muted-foreground magnetic-hover cursor-default"
               >
                 <Icon size={16} className="text-primary" />
                 {label}
@@ -53,8 +58,9 @@ export const HeroSection = () => {
             ))}
           </div>
 
-          <div className="pt-3 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
+          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
+            <a href="#projects" className="cosmic-button inline-flex items-center gap-2">
+              <Sparkles size={16} />
               View My Work
             </a>
           </div>

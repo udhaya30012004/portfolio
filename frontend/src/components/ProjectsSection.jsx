@@ -57,17 +57,17 @@ export const ProjectsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, key) => (
             <ScrollReveal key={project.id} delay={key * 120}>
-              <div className="group glass-panel gradient-border rounded-lg overflow-hidden card-hover h-full">
+              <div className="group glass-panel gradient-border rounded-xl overflow-hidden card-hover h-full flex flex-col">
                 <div className="h-48 overflow-hidden relative">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-background/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/80 via-background/20 to-transparent" />
                 </div>
 
-                <div className="p-6 text-left">
+                <div className="p-6 text-left flex-1 flex flex-col">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.slice(0, 4).map((tag) => (
                       <span
@@ -84,30 +84,30 @@ export const ProjectsSection = () => {
                     {project.description}
                   </p>
 
-                  <div className="space-y-2 mb-5">
+                  <div className="space-y-2 mb-5 flex-1">
                     {project.impact.map((item) => (
                       <div
                         key={item}
                         className="flex items-center gap-2 text-sm text-muted-foreground"
                       >
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_rgba(45,212,191,0.8)]" />
+                        <span className="glow-dot" />
                         {item}
                       </div>
                     ))}
                   </div>
 
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-3 pt-2">
                     <a
                       href={project.demoUrl}
                       target="_blank"
-                      className="rounded-full border border-border p-2 text-foreground/80 hover:text-primary hover:border-primary/50 transition-colors duration-300"
+                      className="rounded-full border border-border p-2.5 text-foreground/80 hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
                     >
                       <ExternalLink size={18} />
                     </a>
                     <a
                       href={project.githubUrl}
                       target="_blank"
-                      className="rounded-full border border-border p-2 text-foreground/80 hover:text-primary hover:border-primary/50 transition-colors duration-300"
+                      className="rounded-full border border-border p-2.5 text-foreground/80 hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
                     >
                       <Github size={18} />
                     </a>
@@ -120,7 +120,7 @@ export const ProjectsSection = () => {
 
         <ScrollReveal className="text-center mt-12">
           <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+            className="cosmic-button w-fit inline-flex items-center mx-auto gap-2"
             target="_blank"
             href="https://github.com/udhaya30012004"
           >

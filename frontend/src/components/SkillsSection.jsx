@@ -4,6 +4,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 
 const skills = [
   // AI/ML
+  { name: "Machine Learning", level: 90, category: "ai/ml" },
   { name: "Python", level: 95, category: "ai/ml" },
   { name: "SQL", level: 90, category: "ai/ml" },
   { name: "TensorFlow", level: 85, category: "ai/ml" },
@@ -12,6 +13,7 @@ const skills = [
 
   // Generative AI
   { name: "LangChain", level: 90, category: "genai" },
+  { name: "MCP (Model Context Protocol)", level: 85, category: "genai" },
   { name: "LangGraph", level: 85, category: "genai" },
   { name: "Transformers", level: 85, category: "genai" },
   { name: "RAG", level: 90, category: "genai" },
@@ -37,7 +39,7 @@ export const SkillsSection = () => {
     (skill) => activeCategory === "all" || skill.category === activeCategory
   );
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/20">
+    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <ScrollReveal>
           <div className="mb-12 text-center">
@@ -54,11 +56,15 @@ export const SkillsSection = () => {
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-all duration-300 capitalize border",
+                "px-5 py-2.5 rounded-full transition-all duration-400 capitalize border font-semibold text-sm",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground border-primary shadow-[0_0_24px_rgba(45,212,191,0.18)]"
+                  ? "text-white border-transparent"
                   : "bg-card/50 border-border text-muted-foreground hover:text-foreground hover:border-primary/40"
               )}
+              style={activeCategory === category ? {
+                background: "linear-gradient(135deg, var(--btn-from), var(--btn-via), var(--btn-to))",
+                boxShadow: "0 4px 20px rgba(99, 102, 241, 0.3)"
+              } : {}}
             >
               {category}
             </button>
@@ -70,15 +76,18 @@ export const SkillsSection = () => {
             <ScrollReveal key={skill.name} delay={(key % 6) * 70}>
               <div className="glass-panel gradient-border p-5 card-hover">
                 <div className="flex items-center justify-between text-left mb-4">
-                  <h3 className="font-semibold text-lg">{skill.name}</h3>
-                  <span className="text-xs font-bold text-primary">
+                  <h3 className="font-bold text-lg">{skill.name}</h3>
+                  <span className="text-xs font-bold text-primary px-2 py-1 rounded-full bg-primary/10">
                     {skill.level}%
                   </span>
                 </div>
-                <div className="w-full bg-secondary/70 h-2 rounded-full overflow-hidden">
+                <div className="w-full bg-secondary/70 h-2.5 rounded-full overflow-hidden">
                   <div
-                    className="h-2 rounded-full bg-linear-to-r from-[var(--gradient-from)] via-primary to-[var(--gradient-to)] origin-left"
-                    style={{ width: skill.level + "%" }}
+                    className="h-2.5 rounded-full progress-shimmer origin-left"
+                    style={{
+                      width: skill.level + "%",
+                      background: `linear-gradient(90deg, var(--progress-from), var(--progress-via), var(--progress-to))`,
+                    }}
                   />
                 </div>
 

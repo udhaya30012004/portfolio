@@ -34,7 +34,7 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <ScrollReveal className="space-y-6 text-left">
-            <h3 className="text-3xl font-bold">
+            <h3 className="text-3xl font-bold leading-snug">
               AI Engineer focused on practical intelligence.
             </h3>
 
@@ -51,17 +51,17 @@ export const AboutSection = () => {
             <div className="grid grid-cols-3 gap-3 pt-2">
               {[
                 ["3+", "AI Projects"],
-                ["18", "Core Skills"],
-                ["MCA", "Student"],
+                ["20", "Core Skills"],
+                ["MCA", "Completed"],
               ].map(([value, label]) => (
                 <div
                   key={label}
-                  className="glass-panel rounded-lg p-4 text-center"
+                  className="glass-panel rounded-xl p-4 text-center card-hover"
                 >
                   <div className="text-2xl font-black text-primary">
                     {value}
                   </div>
-                  <div className="text-xs text-muted-foreground">{label}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{label}</div>
                 </div>
               ))}
             </div>
@@ -74,7 +74,7 @@ export const AboutSection = () => {
               <a
                 href="https://drive.google.com/file/d/13Rzfxj9LQFbKf-IRgG86jdhqh2TVIGDb/view?usp=sharing"
                 target="_blank"
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+                className="px-6 py-3 rounded-full border border-primary/30 text-primary font-semibold hover:bg-primary/10 hover:border-primary/50 transition-all duration-400"
               >
                 Download Resume
               </a>
@@ -86,11 +86,12 @@ export const AboutSection = () => {
               <ScrollReveal key={title} delay={index * 120}>
                 <div className="gradient-border glass-panel p-6 card-hover">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-primary/10 shadow-[0_0_28px_rgba(45,212,191,0.12)]">
+                    <div className="p-3 rounded-xl bg-primary/10 animate-glow-pulse"
+                      style={{ "--glow-color": "hsl(var(--primary) / 0.15)" }}>
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <div className="text-left">
-                      <h4 className="font-semibold text-xl">{title}</h4>
+                      <h4 className="font-bold text-xl">{title}</h4>
                       <p className="text-muted-foreground mt-1">
                         {description}
                       </p>

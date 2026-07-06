@@ -77,7 +77,7 @@ export const SkillsSection = () => {
                 </div>
                 <div className="w-full bg-secondary/70 h-2 rounded-full overflow-hidden">
                   <div
-                    className="h-2 rounded-full bg-linear-to-r from-cyan-300 via-primary to-emerald-300 origin-left"
+                    className="h-2 rounded-full bg-linear-to-r from-[var(--gradient-from)] via-primary to-[var(--gradient-to)] origin-left"
                     style={{ width: skill.level + "%" }}
                   />
                 </div>

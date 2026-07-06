@@ -24,10 +24,15 @@ export const Navbar = () => {
   }, []);
   return (
     <nav
+      style={isScrolled ? {
+        boxShadow: "var(--nav-shadow)",
+        borderColor: "var(--nav-border)",
+        backgroundColor: "var(--nav-bg)"
+      } : {}}
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
+        "fixed w-full z-40 transition-all duration-300 border-b border-transparent",
         isScrolled
-          ? "py-3 bg-background/80 backdrop-blur-xl shadow-[0_12px_40px_rgba(2,6,23,0.24)] border-b border-border/60"
+          ? "py-3 backdrop-blur-xl"
           : "py-5"
       )}
     >

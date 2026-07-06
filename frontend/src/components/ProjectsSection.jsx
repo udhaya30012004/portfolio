@@ -8,7 +8,7 @@ const projects = [
     description:
       "Natural language to optimized SQL using LangChain, LangGraph, PostgreSQL, Pinecone, and Gemini.",
     impact: ["Hybrid schema retrieval", "Graph-aware table selection", "Precision/Recall/F1 evaluation"],
-    image: "/projects/sql-agent.png",
+    image: "/projects/sql-agent-new.png",
     tags: ["Python", "LangChain", "LangGraph", "PostgreSQL", "Pinecone", "Gemini API"],
     demoUrl: "#",
     githubUrl: "#",
@@ -30,7 +30,7 @@ const projects = [
     description:
       "Computer Vision app that classifies 120+ dog breeds with CNNs and a Streamlit prediction interface.",
     impact: ["Image augmentation", "TensorFlow/Keras model", "Real-time prediction UI"],
-    image: "/projects/dog-breed.png",
+    image: "/projects/dog-breed-new.png",
     tags: ["Python", "TensorFlow", "CNN", "OpenCV", "Streamlit", "Keras"],
     demoUrl: "#",
     githubUrl: "#",
